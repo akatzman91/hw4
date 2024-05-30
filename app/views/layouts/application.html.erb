@@ -35,10 +35,12 @@
       </div>
     </nav>
       <div class = "container">
-            <%= flash["notice"] %>
-      </div>
-
+        <% if flash["notice"] %>
+          <div class="alert alert-secondary">
+        <%= flash["notice"] %>
+        </div>
+      <% end %>
     <%= yield %>
-
+    </div>
   </body>
 </html>
