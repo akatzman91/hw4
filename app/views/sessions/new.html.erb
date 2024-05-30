@@ -1,14 +1,16 @@
 <h1>Login</h1>
 
 <form action="/sessions" method="post">
-  <p>
-    <label for="email_input">Email</label>
-    <input type="text" name="email" id="email_input">
-
-    <label for="password_input">Password</label>
-    <input type="password" name="password" id="password_input">
-  </p>
-
+  <div class="mb-3">
+    <label class="form-label" for="email_input">Email</label>
+    <input class="form-control" type="text" name="email" id="email_input">  
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="password_input">Password</label>
+    <input class="form-control" type="password" name="password" id="password_input">
+  </div>
+  <div class="mb-3">
   <button class="btn btn-secondary">Login</button>
+  </div>
 </form>
 
