@@ -17,23 +17,28 @@
   </head>
 
   <body>
-    <div>
-      <% @user = User.find_by({ "id" => session["user_id"] }) %>
-      <% if @user == nil %>
-        <a href="/login">Login</a>
-        <a href="/users/new">Signup</a>
-      <% else %>
-       Hey, <%= @user["username"] %>
-        |
-        <a href="/">Home</a>
-        <a href="/logout">Logout</a>
-      <% end %>
-    </div>
-
-    <div>
-      <%= flash["notice"] %>
-    </div>
+    <nav class="navbar bg-body-tertiary">
+      <div class = "container-fluid">
+        <a class="navbar-brand" href="/">Tacostagram</a>
+        <span class="navbar-text">
+          <% @user = User.find_by({ "id" => session["user_id"] }) %>
+          <% if @user == nil %>
+            <a href="/login">Login</a>
+            <a href="/users/new">Signup</a>
+          <% else %>
+        Hey, <%= @user["username"] %>
+          |
+          <a href="/">Home</a>
+          <a href="/logout">Logout</a>
+        <% end %>
+        </span>
+      </div>
+    </nav>
+      <div class = "container">
+            <%= flash["notice"] %>
+      </div>
 
     <%= yield %>
+
   </body>
 </html>
