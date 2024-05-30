@@ -1,9 +1,6 @@
 class EntriesController < ApplicationController
-  def show
+  def index
     @entries = Entry.where({ "user_id" => session["user_id"] })
-  end
-
-  def new
   end
 
   def create

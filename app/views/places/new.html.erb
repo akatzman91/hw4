@@ -1,4 +1,4 @@
-<% if @current_user %>
+<% if User.find_by({ "id" => session["user_id"] }) != nil %>
   <h1>New Place</h1>
 
   <form action="/places" method="post">
