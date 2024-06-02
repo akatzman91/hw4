@@ -10,11 +10,21 @@
             <h3 class="card-title"><%= entry["title"] %></h3>
             <h4 class="card-subtitle mb-2 text-muted"><%= entry["occurred_on"] %></h4>
             <p class="card-text"><%= entry["description"] %></p>
+            <p>
+            <% if entry.uploaded_image.attached? %>
+              <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
+            <% else %>
+              <img src="<%= entry["image"] %>" class="img-fluid">
+            <% end %>
+          </p>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+
+
+
 <p>
   <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
 </p>
@@ -24,8 +34,3 @@
 </p>
 <% end %>
 
-<% if entry.uploaded_image.attached? %>
-  <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
-<% else %>
-  <img src="<%= entry["image"] %>" class="img-fluid">
-<% end %>
